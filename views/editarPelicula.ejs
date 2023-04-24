@@ -1,0 +1,49 @@
+<%- include("header") -%>
+<h1>Crear pelicula</h1>
+<form action="/peliculas/editar/<%=pelicula.id%>" method="POST">
+
+    <div>
+        <label for="">Titulo</label>
+        <input type="text" name="titulo" value="<%=pelicula.title%>">
+    </div>
+    <br>
+    <div>
+        <label for="">Premios</label>
+        <input type="text" name="premios" value="<%=pelicula.awards%>">
+    </div>
+    <br>
+    <div>
+        <label for="">Duracion</label>
+        <input type="text" name="duracion" value="<%=pelicula.length%>">
+    </div>
+    <br>
+    <div>
+        <label for="">Rating</label>
+        <input type="text" name="rating" value="<%=pelicula.rating%>">
+    </div>
+    <br>
+    <div>
+        <label for="">Fecha de estreno</label>
+        <input type="date" name="fecha_estreno">
+    </div>
+    <br>
+    <div>
+        <label for="">Genero</label>
+        <select name="genero">
+            <% for( let i = 0; i < generos.length; i++ ) { %>
+            <% if(generos[i].id == pelicula.genre_id){ %>
+                <option value="<%=generos[i].id%>" selected>
+                    <%=generos[i].name%>
+                </option>
+                <%  } else { %>
+                    <option value="<%=generos[i].id%>" selected>
+                        <%=generos[i].name%>
+                    </option>
+                    <% } %>
+                <% } %>
+        </select>
+    </div>
+    <br>
+<button type="submit"> Editar </button>
+</form>
+<%- include("footer") -%>
